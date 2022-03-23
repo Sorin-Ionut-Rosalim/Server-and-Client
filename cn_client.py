@@ -18,7 +18,7 @@ print("""\
 """)
 #local host
 host = "127.0.0.1" 
-#get the port you want to open
+#get the port you want to connect to
 port = int(input("ENTER THE PORT YOU WANT TO CONNECT TO:  "))
 
 # We create a socket for the clitent
