@@ -27,7 +27,10 @@ port = int(input("ENTER THE PORT YOU WANT TO CONNECT TO:  "))
 # TCP (SOCK_STREAM) is a connection-based protocol. 
 #The connection is established and the two parties have a conversation until the connection is terminated by one of the parties or by a network error.
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
+# Here I am creating the socket,
+#socket describes the comunication between two IP entities (end poitns)
+#        IPV4 - AF_INET (host, port)
+#        TCP - SOCK_STREAM
 
 try:
     # connect() is used to connect to a remote [server] address
