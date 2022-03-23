@@ -17,21 +17,28 @@ print("""\
                                                                                                                        
                     """)
 
-
-
-
-host = "127.0.0.1"
+#local host
+host = "127.0.0.1" 
+#get the port you want to open
 port = int(input("ENTER THE PORT YOU WANT TO OPEN:  "))
+
+# We create a socket for the server
+# AF_INET is an address family that is used to designate the type 
+# of addresses that your socket can communicate with (in this case, Internet Protocol v4 addresses).
+# TCP (SOCK_STREAM) is a connection-based protocol. 
+#The connection is established and the two parties have a conversation until the connection is terminated by one of the parties or by a network error.
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server:
     # Here I am creating the socket,
     #socket describes the comunication between two IP entities (end poitns)
     #        IPV4 - AF_INET (host, port)
     #        TCP - SOCK_STREAM
 
+    
+    # In python we need to use threades for each client
     def threaded_client(connection):
         """
-            * Function that handles multiple clients
-            * The function connects to each client on the different address given by the server
+            -> Function that handles multiple clients
+            -> The function connects to each client on the different address given by the server
         """
 
         while True:
@@ -56,13 +63,13 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server:
         print(str(e))
 
     #listen() = listen for socket connections and limit the queue of incoming connections
-    #also set server in listen mode
+    #also sets server in listen mode
     print('Waiting for a Client..')
     server.listen()
 
     while True:
         # Establish connection with client.
-        #wakes up when a connection from a client is establish
+        # Wakes up when a connection from a client is establish.
         connection, addr = server.accept()
         print("Connected to {}".format(addr))
         #start a new thread for each client
